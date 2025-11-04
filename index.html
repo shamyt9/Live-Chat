@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-height: 100vh;
+                user-select: none;
+            }
+            .container {
+                display: flex;
+                width: 80%;
+                margin-top: 20px;
+                gap: 20px;
+            }
+            aside {
+                width: 25%;
+                background-color: #fff;
+                padding: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            main {
+                width: 75%;
+                background-color: #fae3e3;
+                padding: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+                height: 500px;
+            }
+            #messages {
+                flex-grow: 1;
+                overflow-y: auto;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                padding: 10px;
+            }
+            #messageinput {
+                width: calc(100% - 100px);
+                padding: 10px;
+                margin-right: 10px;
+            }
+            #sendmessage {
+                padding: 10px 20px;
+            }
+            header {
+                width: 100%;
+                height: 60px;
+                background-color: #4caf50;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 40px;
+                padding: 0 20px;
+            }
+            header nav ul {
+                list-style-type: none;
+                display: flex;
+                gap: 20px;
+                margin: 0;
+                padding: 0;
+
+                flex-grow: 1;
+            }
+            #messageinput {
+                padding: 10px;
+                width: 900px;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                outline: none;
+                display: inline-block;
+            }
+            #sendmessage {
+                display: inline-block;
+                padding: 10px 20px;
+                border: none;
+                background-color: #4caf50;
+                color: white;
+                border-radius: 10px;
+                cursor: pointer;
+                width: 200px;
+            }
+            .actionContainer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .card {
+                background-color: #e0e0e0;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+            .user {
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            .message {
+                margin-bottom: 5px;
+            }
+            .timestamp {
+                font-size: 0.8em;
+                color: #666;
+            }
+            .actions {
+                margin-top: 5px;
+            }
+            .actions button {
+                margin-right: 5px;
+                padding: 5px 10px;
+                border: none;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+            .actions .edit {
+                background-color: #2196f3;
+                color: white;
+            }
+            .actions .delete {
+                background-color: #f44336;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Live Chat Web Application</h1>
+        </header>
+
+        <section class="container">
+            <aside>
+                <button id="startchat">Start Chatting</button>
+                <div class="history">
+                    <div class="card">
+                        <h2 class="user">Manish</h2>
+                        <p class="message">Hello, how are you?</p>
+                        <span class="timestamp">10:00 AM</span>
+                        <div class="actions">
+                            <button class="edit">Edit</button>
+                            <button class="delete">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <main id="chatwindow">
+                <div id="messages"></div>
+                <div class="actionContainer">
+                    <input
+                        type="text"
+                        id="messageinput"
+                        placeholder="Type your message here..."
+                    />
+                    <button id="sendmessage">Send</button>
+                </div>
+            </main>
+        </section>
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            $(document).ready(function () {
+                const el = {
+                    startchat: document.getElementById('startchat'),
+                    sendmessage: document.getElementById('sendmessage'),
+                    messageinput: document.getElementById('messageinput'),
+                    messages: document.getElementById('messages'),
+                    chatwindow: document.getElementById('chatwindow'),
+                };
+            });
+        </script>
+    </body>
+</html>
