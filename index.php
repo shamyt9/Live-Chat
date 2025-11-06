@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messaging System</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Sidebar with user list and search -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>Live Chat</h1>
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Search for users..." id="searchUser" />
+            </div>
+        </div>
+        <div class="user-list">
+            <div class="user-item active">
+                <div class="user-avatar">JD</div>
+                <div class="user-info">
+                    <div class="user-name">John Doe</div>
+                    <div class="user-status">
+                        <span class="online-indicator"></span>Online
+                    </div>
+                </div>
+            </div>
+            <div class="user-item">
+                <div class="user-avatar">AS</div>
+                <div class="user-info">
+                    <div class="user-name">Alice Smith</div>
+                    <div class="user-status">
+                        <span class="online-indicator"></span>Online
+                    </div>
+                </div>
+            </div>
+            <div class="user-item">
+                <div class="user-avatar">RJ</div>
+                <div class="user-info">
+                    <div class="user-name">Robert Johnson</div>
+                    <div class="user-status">Last seen 2 hours ago</div>
+                </div>
+            </div>
+            <div class="user-item">
+                <div class="user-avatar">EW</div>
+                <div class="user-info">
+                    <div class="user-name">Emma Wilson</div>
+                    <div class="user-status">
+                        <span class="online-indicator"></span>Online
+                    </div>
+                </div>
+            </div>
+            <div class="user-item">
+                <div class="user-avatar">MB</div>
+                <div class="user-info">
+                    <div class="user-name">Michael Brown</div>
+                    <div class="user-status">Last seen yesterday</div>
+                </div>
+            </div>
+            <div class="user-item">
+                <div class="user-avatar">SD</div>
+                <div class="user-info">
+                    <div class="user-name">Sarah Davis</div>
+                    <div class="user-status">
+                        <span class="online-indicator"></span>Online
+                    </div>
+                </div>
+            </div>
+            <div class="user-item">
+                <div class="user-avatar">TW</div>
+                <div class="user-info">
+                    <div class="user-name">Thomas Wilson</div>
+                    <div class="user-status">Last seen 30 minutes ago</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main chat area -->
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="user-avatar">JD</div>
+            <div class="chat-header-info">
+                <h2 class="userName">John Doe</h2>
+                <p class="onlineStatus">
+                    <span class="online-indicator"></span>Online
+                </p>
+            </div>
+        </div>
+        <div class="messages-container">
+            <div class="message received">
+                Hey there! How are you doing?
+                <div class="message-time">10:30 AM</div>
+            </div>
+            <div class="message sent">
+                I'm good, thanks! Just working on a new project.
+                <div class="message-time">10:32 AM</div>
+            </div>
+            <div class="message received">
+                That sounds interesting. What kind of project?
+                <div class="message-time">10:33 AM</div>
+            </div>
+            <div class="message sent">
+                It's a messaging system design using only HTML and CSS.
+                <div class="message-time">10:35 AM</div>
+            </div>
+            <div class="message received">
+                Wow, that's cool! How's it going so far?
+                <div class="message-time">10:36 AM</div>
+            </div>
+            <div class="message sent">
+                Pretty well! I've got the basic layout working with sidebar
+                and message area.
+                <div class="message-time">10:38 AM</div>
+            </div>
+            <div class="message received">
+                Great! Let me know if you need any help with it.
+                <div class="message-time">10:40 AM</div>
+            </div>
+        </div>
+        <div class="message-input-container">
+            <textarea class="message-input" placeholder="Type a message..."></textarea>
+            <button class="send-button">➤</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

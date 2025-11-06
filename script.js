@@ -1,3 +1,6 @@
+const userId =
+    new URLSearchParams(window.location.search).get('userId') || 'guest';
+console.log('Current User ID:', userId);
 const el = {
     searchUser: document.querySelector('#searchUser'),
     userList: document.querySelector('.user-list'),
