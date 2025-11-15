@@ -1,24 +1,40 @@
 <?php
-include 'config.php';
+header('Content-type:application/json');
+include "config.php";
 
-session_start();
 
-if (isset($_SESSION['user_id'])) {
-  $username = $_POST['username'];
-  $email = $_POST['email'];
-  $password = $_POST['password'];
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-  $query = "SELECT * FROM users WHERE (username='$username' OR email='$email') AND password='$password'";
-  $result = mysqli_query($conn, $query);
-  if (mysqli_num_rows($result) > 0) {
-    $user = mysqli_fetch_assoc($result);
-    $_SESSION['user_id'] = $user['id'];
-    echo json_encode(['logged_in' => true, 'user_id' => $user['id']]);
+
+$sql = "SELECT username,name,email,password from users where username=?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+$response = [];
+
+if ($user) {
+
+  if ($password == $user['password']) {
+    session_start();
+    $response['logged_in'] = true;
+    $response['data'] = $username;
+    $_SESSION['name'] = $user['name'];
+    $_SESSION['username'] = $username;
   } else {
-    echo json_encode(['logged_in' => false]);
+    $response['logged_in'] = false;
+    $response['data'] = 'Wrong Credential';
   }
 } else {
-  echo json_encode(['logged_in' => false]);
+  $response['logged_in'] = false;
+  $response['username'] = 'wrong credential';
 }
+
+echo json_encode($response);
+
+
 
 ?>

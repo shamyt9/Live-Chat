@@ -1,6 +1,6 @@
 const userId =
-    new URLSearchParams(window.location.search).get('userId') || 'guest';
-console.log('Current User ID:', userId);
+    new URLSearchParams(window.location.search).get('username') || 'guest';
+// console.log('Current User ID:', userId);
 const el = {
     searchUser: document.querySelector('#searchUser'),
     userList: document.querySelector('.user-list'),
@@ -60,4 +60,15 @@ function sendMessage() {
         el.messagesContainer.appendChild(messageElement);
         el.messageInput.value = '';
     }
+}
+
+function fetchUsers() {
+    $.ajax({
+        url: './api/fetchUser.php',
+        method: 'POST',
+        success: function (response) {},
+        error: function () {
+            alert('Server error! Try after sometime');
+        },
+    });
 }

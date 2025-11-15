@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!$_SESSION['username']) {
+    header('Location: ./login.php');
+}
+
+$name = $_SESSION['name'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +23,7 @@
     <!-- Sidebar with user list and search -->
     <div class="sidebar">
         <div class="sidebar-header">
-            <h1>Live Chat</h1>
+            <h1>Hello <?php echo htmlspecialchars($name) ?> !!</h1>
             <div class="search-container">
                 <span class="search-icon">🔍</span>
                 <input type="text" placeholder="Search for users..." id="searchUser" />
